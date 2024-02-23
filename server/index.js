@@ -2,7 +2,7 @@ require('dotenv').config()
 const cors = require('cors');
 
 const express = require('express');
-const loginRoutes = require('./src/routes/loginRouter');
+const authRoutes = require('./src/routes/authRouter');
 
 
 const app = express();
@@ -15,20 +15,16 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/", (req, res) => {
+    res.json({"mssg": "FIRST PAGE"});
+})
+
 app.get("/home", (req, res) => {
     res.json({"mssg": "hello"});
 })
 
-app.get("/callback", (req, res) => {
-    res.json({"mssg": "callback"});
-})
-
 //api
-app.use('/login', loginRoutes);
-
-app.get("/api", (req, res) => {
-    res.json({"users": ["userOne", "userTwo", "userThree"]});
-});
+app.use('/auth', authRoutes);
 
 //listen
 app.listen(process.env.PORT, () => {
