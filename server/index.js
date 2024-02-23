@@ -15,6 +15,14 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/home", (req, res) => {
+    res.json({"mssg": "hello"});
+})
+
+app.get("/callback", (req, res) => {
+    res.json({"mssg": "callback"});
+})
+
 //api
 app.use('/login', loginRoutes);
 
