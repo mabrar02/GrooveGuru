@@ -1,26 +1,15 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import React, {useEffect, useState} from 'react'
+import {BrowserRouter, Routes, Route, createBrowserRouter, RouterProvider} from 'react-router-dom'
+import React from 'react'
 
 //pages and components
 import Home from './pages/Home'
+import ErrorPage from './pages/ErrorPage'
+import Login from './pages/Login'
 
 function App() {
-  
 
-  return (
-    <div className='App'>
-      <BrowserRouter>
-        <div className='pages'>
-          <Routes>
-            <Route
-              path='/'
-              element={<Home/>}
-            />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </div>
-  );
+  const code = new URLSearchParams(window.location.search).get('code');
+  return code ? <Home code={code}/> : <Login/>;
 }
 
 export default App;

@@ -1,7 +1,12 @@
-const Home = () => {
+import React from "react"
+import useAuth from "../components/useAuth"
+
+const Home = ({code}) => {
+
+    const accessToken = useAuth(code)
     return (
         <div className="home">
-            <h2>Home</h2>
+            <h1>{code}</h1>
         </div>
 
 

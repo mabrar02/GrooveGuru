@@ -3,7 +3,9 @@ const {login, callback, refreshToken} = require("../controllers/authController")
 const router = express.Router()
 
 router.get('/login', login);
-router.get('/callback', callback);
-router.get('/refresh_token', refreshToken);
+router.get('/refresh', refreshToken);
+router.get('/test', (req, res) => {
+    res.json({"msg": "test"});
+})
 
 module.exports = router
