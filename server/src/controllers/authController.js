@@ -1,9 +1,7 @@
 require('dotenv').config();
-const querystring = require('querystring');
 
-const redirect_uri = 'http://localhost:3000'
+const redirect_uri = process.env.APP_DOMAIN;
 const apiEndpoint = 'https://accounts.spotify.com/api/token';
-
 
 const login = async (req, res) => {
     let code = req.query.code || null;
