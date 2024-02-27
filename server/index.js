@@ -4,6 +4,7 @@ const cors = require('cors');
 const express = require('express');
 const authRoutes = require('./src/routes/authRouter');
 const profileRoutes = require('./src/routes/profileRouter');
+const trackRoutes = require('./src/routes/trackRouter');
 
 
 const app = express();
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 })
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
+app.use('/track', trackRoutes);
 
 //listen
 app.listen(process.env.PORT, () => {

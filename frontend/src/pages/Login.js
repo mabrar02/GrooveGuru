@@ -4,7 +4,7 @@ const Login = () => {
 
     const AUTH_URL = 'https://accounts.spotify.com/authorize';
     const redirect_uri = 'http://localhost:3000';
-    const scope = 'user-read-private user-read-email';
+    const scope = 'user-read-private user-read-email user-read-currently-playing';
 
     const handleLogin = async () => {
         let state = generateRandomString(16);
